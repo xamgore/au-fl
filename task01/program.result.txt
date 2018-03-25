@@ -1,0 +1,72 @@
+TRead 1 1 4
+TId "x_" 1 6 2
+TSep 1 8 1
+TIf 1 10 2
+TId "y" 1 13 1
+TPlus 1 15 1
+TNum 1.0 1 17 1
+TGE 1 19 2
+TId "x" 1 22 1
+TThen 1 24 4
+TLParen 1 29 1
+TWrite 1 30 5
+TId "y" 1 36 1
+TRParen 1 37 1
+TElse 1 39 4
+TWrite 1 44 5
+TId "x" 1 50 1
+TSep 2 1 1
+TSep 2 2 1
+TSep 2 3 1
+TSep 2 4 1
+TSep 2 5 1
+TNum 6.022136999999999e23 3 1 20
+TNum 42.0 4 1 2
+TNum 10.0 5 1 3
+TNum 2.0 5 8 2
+TNum 0.3 5 14 2
+TNum 0.0 5 20 3
+TNum 3.14 5 27 9
+TNum 1.0e-9 5 40 4
+TNum 1.0e137 5 48 8
+TIf 6 1 2
+TSep 6 3 1
+TThen 6 5 4
+TSep 6 9 1
+TElse 6 11 4
+TSep 6 15 1
+TWhile 6 17 5
+TSep 6 22 1
+TDo 6 24 2
+TSep 6 26 1
+TRead 6 28 4
+TSep 6 32 1
+TWrite 6 34 5
+TPlus 7 1 1
+TSep 7 2 1
+TMinus 7 4 1
+TSep 7 5 1
+TMult 7 7 1
+TSep 7 8 1
+TDiv 7 10 1
+TSep 7 11 1
+TMod 7 13 1
+TSep 7 14 1
+TEQ 7 16 2
+TSep 7 18 1
+TNEQ 7 20 2
+TSep 7 22 1
+TGT 7 24 1
+TSep 7 25 1
+TGE 7 27 2
+TSep 7 29 1
+TLT 7 31 1
+TSep 7 32 1
+TLE 7 34 2
+TSep 7 36 1
+TAnd 7 38 2
+TSep 7 40 1
+TOr 7 42 2
+TSep 7 44 1
+TLParen 7 46 1
+TRParen 7 47 1
