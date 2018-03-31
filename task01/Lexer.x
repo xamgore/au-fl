@@ -4,7 +4,7 @@
 module Main (main, Token(..), AlexPosn(..), alexScanTokens) where
 
 import System.Environment  (getArgs)
-import Control.Monad       (when, forM)
+import Control.Monad       (when, forM_)
 import Text.Parsec         ((<|>), char, digit, many, many1, oneOf, option, parse)
 import Text.Parsec.String  (Parser)
 import Data.List           (intersperse)
@@ -25,13 +25,13 @@ $alpha = [a-zA-Z]
 
 tokens :-
   $white+                         ;
-  "//".*                          ;
+  "//".*                          { tok $ \s -> TComment s }
   ";"                             { tok $ \s -> TSep }
   ")"                             { tok $ \s -> TRParen }
   "("                             { tok $ \s -> TLParen }
   "+"                             { tok $ \s -> TPlus }
-  "−"                             { tok $ \s -> TMinus }
-  "∗"                             { tok $ \s -> TMult }
+  "-"                             { tok $ \s -> TMinus }
+  "*"                             { tok $ \s -> TMult }
   "/"                             { tok $ \s -> TDiv }
   "%"                             { tok $ \s -> TMod }
   "=="                            { tok $ \s -> TEQ }
@@ -92,6 +92,7 @@ data Token = TLParen     Row Col Len
            | TOr         Row Col Len
            | TId  String Row Col Len
            | TNum Double Row Col Len
+           | TComment String Row Col Len
            deriving (Eq,Show)
 
 
@@ -120,22 +121,27 @@ parseFloat s = let Right n = parse float "" clean_str in n
         return (* (10 ** f n))
 
 
+main :: IO ()
 main = do
   args <- getArgs
   when (null args) $ putStrLn "File path is required"
 
-  forM args $ \path -> do
-    text <- readFile path
-    let toks = alexScanTokens text
-    putStrLn $ concat $ intersperse "\n" $ map show toks
+  if (args == ["--test"]) then
+    runSmokeTest
+  else
+    forM_ args $ \path -> do
+      text <- readFile path
+      let toks = alexScanTokens text
+      putStrLn $ concat $ intersperse "\n" $ map show toks
 
-  smoke_test
 
+runSmokeTest :: IO ()
+runSmokeTest = do
+  toks <- alexScanTokens <$> readFile "program.test.txt"
+  res  <- readFile "program.result.txt"
 
-smoke_test = do
-  toks <- alexScanTokens <$> readFile "program.txt"
-  res  <- readFile "program.test.txt"
-  if (concat $ intersperse "\n" $ show <$> toks) == init res
+  let lexRes = concat $ intersperse "\n" $ show <$> toks
+  if lexRes == init res
     then putStrLn "Smoke tests were passed"
-    else putStrLn "Tests failed"
+    else putStrLn $ "Tests failed\n\n" ++ lexRes
 }

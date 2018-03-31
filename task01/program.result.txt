@@ -70,3 +70,6 @@ TOr 7 42 2
 TSep 7 44 1
 TLParen 7 46 1
 TRParen 7 47 1
+TComment "// there is no such text here" 8 1 29
+TComment "///////////////////////" 9 1 23
+TComment "// lel" 10 1 6
