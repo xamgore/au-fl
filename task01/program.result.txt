@@ -73,3 +73,6 @@ TRParen 7 47 1
 TComment "// there is no such text here" 8 1 29
 TComment "///////////////////////" 9 1 23
 TComment "// lel" 10 1 6
+TId "a" 11 1 1
+TAssign 11 2 1
+TId "b" 11 3 1

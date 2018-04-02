@@ -8,3 +8,4 @@ if; then; else; while; do; read; write
 // there is no such text here
 ///////////////////////
 // lel
+a=b

@@ -29,6 +29,7 @@ tokens :-
   ";"                             { tok $ \s -> TSep }
   ")"                             { tok $ \s -> TRParen }
   "("                             { tok $ \s -> TLParen }
+  "="                             { tok $ \s -> TAssign }
   "+"                             { tok $ \s -> TPlus }
   "-"                             { tok $ \s -> TMinus }
   "*"                             { tok $ \s -> TMult }
@@ -77,6 +78,7 @@ data Token = TLParen     Row Col Len
            | TWrite      Row Col Len
            | TTrue       Row Col Len
            | TFalse      Row Col Len
+           | TAssign     Row Col Len
            | TPlus       Row Col Len
            | TMinus      Row Col Len
            | TMult       Row Col Len

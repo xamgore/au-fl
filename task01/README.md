@@ -31,7 +31,7 @@ fun fib(n, acc=n) {
 
 
 if argc > 0 {
-  n := argv(0); // argv — is a function, not an array
+  n = argv(0); // argv — is a function, not an array
   write(fib(n));
 } else {
   write(-1);
