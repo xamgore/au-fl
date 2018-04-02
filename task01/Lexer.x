@@ -46,6 +46,7 @@ tokens :-
   "<="                            { tok $ \s -> TLE }
   "&&"                            { tok $ \s -> TAnd }
   "||"                            { tok $ \s -> TOr }
+  fun                             { tok $ \s -> TFun }
   if                              { tok $ \s -> TIf }
   then                            { tok $ \s -> TThen }
   else                            { tok $ \s -> TElse }
@@ -77,6 +78,7 @@ data Token = TLParen     Row Col Len
            | TComma      Row Col Len
            | TDo         Row Col Len
            | TWhile      Row Col Len
+           | TFun        Row Col Len
            | TIf         Row Col Len
            | TThen       Row Col Len
            | TElse       Row Col Len
