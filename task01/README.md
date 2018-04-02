@@ -52,7 +52,7 @@ if argc > 0 {
 
 ```kotlin
 // expr
-id | id() | float-number | expr operator expr | id = expr | (expr)
+id | id(args) | float-number | expr operator expr | id = expr | (expr)
                                                    ^ right associative
 ```
 
