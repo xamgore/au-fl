@@ -27,8 +27,11 @@ tokens :-
   $white+                         ;
   "//".*                          { tok $ \s -> TComment s }
   ";"                             { tok $ \s -> TSep }
+  ","                             { tok $ \s -> TComma }
   ")"                             { tok $ \s -> TRParen }
   "("                             { tok $ \s -> TLParen }
+  "}"                             { tok $ \s -> TRBrace }
+  "{"                             { tok $ \s -> TLBrace }
   "="                             { tok $ \s -> TAssign }
   "+"                             { tok $ \s -> TPlus }
   "-"                             { tok $ \s -> TMinus }
@@ -68,7 +71,10 @@ tok f (AlexPn _ col row) str = (f str) col row (length str)
 -- The token type:
 data Token = TLParen     Row Col Len
            | TRParen     Row Col Len
+           | TLBrace     Row Col Len -- {}
+           | TRBrace     Row Col Len -- {}
            | TSep        Row Col Len
+           | TComma      Row Col Len
            | TDo         Row Col Len
            | TWhile      Row Col Len
            | TIf         Row Col Len
