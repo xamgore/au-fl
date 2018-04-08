@@ -6,6 +6,10 @@ fun fib(n, acc=n) {
   }
 }
 
+fun pow(n, p) {
+  return(n**p);
+}
+
 
 if argc > 0 {
   n = argv(0); // argv — is a superglobal function

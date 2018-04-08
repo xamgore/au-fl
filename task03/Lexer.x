@@ -36,6 +36,7 @@ tokens :-
   "+"                             { tok $ \s -> TPlus }
   "-"                             { tok $ \s -> TMinus }
   "*"                             { tok $ \s -> TMult }
+  "**"                            { tok $ \s -> TPower }
   "/"                             { tok $ \s -> TDiv }
   "%"                             { tok $ \s -> TMod }
   "=="                            { tok $ \s -> TEQ }
@@ -90,6 +91,7 @@ data Token = TLParen     Row Col Len
            | TPlus       Row Col Len
            | TMinus      Row Col Len
            | TMult       Row Col Len
+           | TPower      Row Col Len
            | TDiv        Row Col Len
            | TMod        Row Col Len
            | TEQ         Row Col Len
