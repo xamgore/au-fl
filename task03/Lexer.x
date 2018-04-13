@@ -26,6 +26,7 @@ $alpha = [a-zA-Z]
 tokens :-
   $white+                         ;
   "//".*                          { tok $ \s -> TComment s }
+  "/*" [.\n]* "*/"                { tok $ \s -> TMComment s }
   ";"                             { tok $ \s -> TSep }
   ","                             { tok $ \s -> TComma }
   ")"                             { tok $ \s -> TRParen }
@@ -104,7 +105,8 @@ data Token = TLParen     Row Col Len
            | TOr         Row Col Len
            | TId  String Row Col Len
            | TNum Double Row Col Len
-           | TComment String Row Col Len
+           | TComment  String Row Col Len
+           | TMComment String Row Col Len
            deriving (Eq,Show)
 
 

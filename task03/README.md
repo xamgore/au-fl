@@ -105,3 +105,9 @@ func | func definitions
 // program
 definitions statements
 ```
+
+```kotlin
+// comentary, can occur anywere, so are ignored in this document
+"// ignored until EOL"
+| "/* any sequence of chars until the first */"
+```
