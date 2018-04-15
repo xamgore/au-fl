@@ -11,3 +11,12 @@ if; then; else; while; do; read; write
 a=b
 /*some
 test*/var
+
+/** test
+ * Fibonacci numbers
+ * Implementation uses an optional accumulator parameter
+ * @return n-th Fibonacci number
+ */
+
+/* */ /*/*/**/ */  /* */*/
+/* *** *** ****//*/*/ /* */

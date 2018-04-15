@@ -80,3 +80,16 @@ TAssign 11 2 1
 TId "b" 11 3 1
 TMComment "/*some\ntest*/" 12 1 13
 TId "var" 13 7 3
+TMComment "/** test\n * Fibonacci numbers\n * Implementation uses an optional accumulator parameter\n * @return n-th Fibonacci number\n */" 15 1 123
+TMComment "/* */" 21 1 5
+TMComment "/*/*/" 21 7 5
+TPower 21 12 2
+TDiv 21 14 1
+TMult 21 16 1
+TDiv 21 17 1
+TMComment "/* */" 21 20 5
+TMult 21 25 1
+TDiv 21 26 1
+TMComment "/* *** *** ****/" 22 1 16
+TMComment "/*/*/" 22 17 5
+TMComment "/* */" 22 23 5

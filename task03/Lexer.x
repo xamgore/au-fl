@@ -22,11 +22,16 @@ $alpha = [a-zA-Z]
               (@digits             @exponent)  |
               (@digits             @exponent?)
 
+@notStars        = ([^\*] | \n)*
+@stars           = [\*]+
+@beforeEndOfCmnt = ([^\*\/] @notStars @stars)*
+@notEndOfComment = @notStars @stars @beforeEndOfCmnt
+
 
 tokens :-
   $white+                         ;
   "//".*                          { tok $ \s -> TComment s }
-  "/*" [.\n]* "*/"                { tok $ \s -> TMComment s }
+  "/*" @notEndOfComment "/"       { tok $ \s -> TMComment s }
   ";"                             { tok $ \s -> TSep }
   ","                             { tok $ \s -> TComma }
   ")"                             { tok $ \s -> TRParen }
@@ -155,7 +160,7 @@ runSmokeTest = do
   res  <- readFile "program.result.txt"
 
   let lexRes = concat $ intersperse "\n" $ show <$> toks
-  if lexRes == init res
+  if res /= "" && lexRes == init res
     then putStrLn "Smoke tests were passed"
     else putStrLn $ "Tests failed\n\n" ++ lexRes
 }
