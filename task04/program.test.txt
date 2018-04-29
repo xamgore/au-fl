@@ -1,0 +1,146 @@
+program
+|
++- functions
+|  |
+|  +- fun "fib"
+|  |  |
+|  |  +- arguments
+|  |  |  |
+|  |  |  +- arg "n"
+|  |  |  |
+|  |  |  `- arg "acc"
+|  |  |     |
+|  |  |     `- const "TId "n" 6 16 1"
+|  |  |
+|  |  `- body
+|  |     |
+|  |     `- if
+|  |        |
+|  |        +- binary "TLE 7 8 2"
+|  |        |  |
+|  |        |  +- const "TId "n" 7 6 1"
+|  |        |  |
+|  |        |  `- const "TNum 1.0 7 11 1"
+|  |        |
+|  |        +- then
+|  |        |  |
+|  |        |  `- call "TId "return" 8 5 6"
+|  |        |     |
+|  |        |     `- const "TId "acc" 8 12 3"
+|  |        |
+|  |        `- else
+|  |           |
+|  |           `- call "TId "return" 10 5 6"
+|  |              |
+|  |              `- call "TId "fib" 10 12 3"
+|  |                 |
+|  |                 +- binary "TMinus 10 18 1"
+|  |                 |  |
+|  |                 |  +- const "TId "n" 10 16 1"
+|  |                 |  |
+|  |                 |  `- const "TNum 1.0 10 20 1"
+|  |                 |
+|  |                 `- binary "TPlus 10 25 1"
+|  |                    |
+|  |                    +- const "TId "n" 10 23 1"
+|  |                    |
+|  |                    `- const "TId "acc" 10 27 3"
+|  |
+|  `- fun "pow"
+|     |
+|     +- arguments
+|     |  |
+|     |  +- arg "n"
+|     |  |
+|     |  `- arg "p"
+|     |
+|     `- body
+|        |
+|        `- call "TId "return" 15 3 6"
+|           |
+|           `- binary "TMinus 15 34 1"
+|              |
+|              +- binary "TPlus 15 26 1"
+|              |  |
+|              |  +- binary "TDiv 15 22 1"
+|              |  |  |
+|              |  |  +- binary "TMult 15 18 1"
+|              |  |  |  |
+|              |  |  |  +- binary "TPower 15 11 2"
+|              |  |  |  |  |
+|              |  |  |  |  +- const "TId "n" 15 10 1"
+|              |  |  |  |  |
+|              |  |  |  |  `- binary "TPower 15 14 2"
+|              |  |  |  |     |
+|              |  |  |  |     +- const "TId "p" 15 13 1"
+|              |  |  |  |     |
+|              |  |  |  |     `- const "TNum 3.0 15 16 1"
+|              |  |  |  |
+|              |  |  |  `- const "TNum 4.0 15 20 1"
+|              |  |  |
+|              |  |  `- const "TNum 5.0 15 24 1"
+|              |  |
+|              |  `- binary "TMult 15 30 1"
+|              |     |
+|              |     +- const "TNum 4.0 15 28 1"
+|              |     |
+|              |     `- const "TNum 3.0 15 32 1"
+|              |
+|              `- const "TNum 1.0 15 36 1"
+|
+`- body
+   |
+   `- if
+      |
+      +- binary "TAnd 19 13 2"
+      |  |
+      |  +- binary "TGT 19 9 1"
+      |  |  |
+      |  |  +- const "TId "argc" 19 4 4"
+      |  |  |
+      |  |  `- const "TNum 0.0 19 11 1"
+      |  |
+      |  `- binary "TNEQ 19 21 2"
+      |     |
+      |     +- const "TTrue 19 16 4"
+      |     |
+      |     `- const "TFalse 19 24 5"
+      |
+      +- then
+      |  |
+      |  +- assign
+      |  |  |
+      |  |  +- var "TId "n" 20 3 1"
+      |  |  |
+      |  |  `- call "TId "argv" 20 7 4"
+      |  |     |
+      |  |     `- const "TNum 0.0 20 12 1"
+      |  |
+      |  `- while
+      |     |
+      |     +- const "TTrue 21 9 4"
+      |     |
+      |     `- do
+      |        |
+      |        `- call "TId "write" 21 17 5"
+      |           |
+      |           `- call "TId "fib" 21 23 3"
+      |              |
+      |              `- const "TId "n" 21 27 1"
+      |
+      `- else
+         |
+         `- call "TId "write" 23 3 5"
+            |
+            `- binary "TMinus 23 13 1"
+               |
+               +- binary "TMinus 23 11 1"
+               |  |
+               |  +- unary "TMinus 23 9 1"
+               |  |  |
+               |  |  `- const "TNum 1.0 23 10 1"
+               |  |
+               |  `- const "TNum 2.0 23 12 1"
+               |
+               `- const "TNum 3.0 23 14 1"
+

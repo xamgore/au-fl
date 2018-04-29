@@ -1,7 +1,7 @@
 {
 {-# LANGUAGE LambdaCase #-}
 
-module Main (main, Token(..), AlexPosn(..), alexScanTokens) where
+module Lexer (main, Token(..), alexScanTokens) where
 
 import System.Environment  (getArgs)
 import Control.Monad       (when, forM_)
@@ -57,8 +57,8 @@ tokens :-
   if                              { tok $ \s -> TIf }
   then                            { tok $ \s -> TThen }
   else                            { tok $ \s -> TElse }
-  read                            { tok $ \s -> TRead }
-  write                           { tok $ \s -> TWrite }
+--  read                            { tok $ \s -> TRead }
+--  write                           { tok $ \s -> TWrite }
   do                              { tok $ \s -> TDo }
   while                           { tok $ \s -> TWhile }
   true                            { tok $ \s -> TTrue }
