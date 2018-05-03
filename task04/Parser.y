@@ -235,7 +235,7 @@ runSmokeTest = do
   actual <- tree <$> readFile "program.test.l"
   expect <- readFile "program.test.txt"
 
-  if expect /= actual
+  if expect == actual
     then putStrLn "Smoke tests were passed"
     else putStrLn $ "Tests failed\n\n" ++ actual
 

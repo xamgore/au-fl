@@ -143,4 +143,3 @@ program
                |  `- const "TNum 2.0 23 12 1"
                |
                `- const "TNum 3.0 23 14 1"
-
