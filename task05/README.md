@@ -2,7 +2,7 @@
 
 ```bash
 git clone https://github.com/xamgore/au-fl.git strebz
-cd strebz
+cd strebz/task05
 
 # install dependencies
 cabal install alex happy parsec
